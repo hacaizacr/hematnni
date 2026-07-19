@@ -9,6 +9,10 @@ const ProductCarousel = () => {
   const { products, fetchProducts, isLoading } = useCartStore();
 
   useEffect(() => {
+    // [TODO: Arquitectura Backend]
+    // Esta llamada asíncrona simulada se reemplazará por la conexión
+    // directa al servicio de backend definitivo (ej. FastAPI o Go).
+    // fetchProducts() en el store ejecutará un fetch a la API REST.
     fetchProducts();
   }, [fetchProducts]);
 
@@ -122,12 +126,14 @@ const ProductCarousel = () => {
               }
             }}
             aria-label={`Ir al producto ${index + 1}`}
-            className={`h-2 w-2 md:h-3 md:w-3 rounded-full transition-all duration-300 focus:outline-none ${
+            className="p-3 focus:outline-none group cursor-pointer"
+          >
+            <div className={`h-2 w-2 md:h-3 md:w-3 rounded-full transition-all duration-300 ${
               index === activeIndex 
                 ? 'w-6 md:w-8 bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)]' 
-                : 'bg-white/20 hover:bg-white/40'
-            }`}
-          />
+                : 'bg-white/20 group-hover:bg-white/40'
+            }`} />
+          </button>
         ))}
       </div>
     </section>

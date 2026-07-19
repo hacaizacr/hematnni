@@ -52,6 +52,9 @@ const Hero = () => {
             <img 
               src="/assets/vapes/hero-trio.webp" 
               alt="Hematnni Premium Vapes"
+              width="665"
+              height="556"
+              fetchpriority="high"
               className="relative z-10 w-full max-w-md lg:max-w-xl object-contain drop-shadow-[0_0_30px_rgba(249,115,22,0.3)] animate-float-hero"
             />
           </div>

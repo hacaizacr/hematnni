@@ -65,7 +65,7 @@ const Footer = () => {
           {/* Columna Central (Navegación y Colección) */}
           <div className="lg:col-span-3 relative z-10 grid grid-cols-2 gap-4 lg:flex lg:flex-col lg:space-y-10 lg:gap-0 lg:px-4">
             <div>
-              <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Enlaces</h4>
+              <h2 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Enlaces</h2>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li><a href="#" className="hover:text-yellow-500 transition-colors">Inicio</a></li>
                 <li><a href="#catalogo" className="hover:text-yellow-500 transition-colors">Catálogo</a></li>
@@ -75,7 +75,7 @@ const Footer = () => {
             </div>
             
             <div>
-              <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Marcas</h4>
+              <h2 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Marcas</h2>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li translate="no" className="notranslate">Pyne Pod</li>
                 <li translate="no" className="notranslate">WeFume</li>
@@ -87,7 +87,7 @@ const Footer = () => {
 
           {/* Columna Derecha (Logística) - Alineación izquierda corregida */}
           <div className="lg:col-span-4 relative z-10 flex flex-col items-start text-left">
-            <h4 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Contacto y Logística</h4>
+            <h2 className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Contacto y Logística</h2>
             
             <ul className="space-y-5 text-sm w-full">
               <li>
