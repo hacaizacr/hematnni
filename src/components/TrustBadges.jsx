@@ -21,7 +21,7 @@ const TrustBadges = () => {
   ];
 
   return (
-    <section className="relative -mt-12 md:-mt-24 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-24">
+    <section className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
         {badges.map((badge, index) => (
           <div key={index} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 flex items-start gap-4 hover:bg-white/10 transition-colors shadow-2xl">
