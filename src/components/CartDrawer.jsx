@@ -24,7 +24,10 @@ const CartDrawer = () => {
       const discountTag = isDiscounted ? ` [Precio Mayoreo Aplicado]` : ``;
       message += `- ${item.quantity}x ${item.name} ($${(unitPrice * item.quantity).toFixed(2)})${discountTag}\n`;
     });
-    message += `\n*Total a pagar: $${cartTotal.toFixed(2)}*`;
+    
+    // Generar Hash de 4 dígitos
+    const randomHash = Math.floor(1000 + Math.random() * 9000);
+    message += `\n*Total a pagar: $${cartTotal.toFixed(2)}*\n\n🔐 Ref: HM-${cartTotal.toFixed(2)}-${randomHash}`;
 
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');

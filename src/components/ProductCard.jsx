@@ -73,24 +73,24 @@ const ProductCard = ({ product }) => {
   const isVisualmenteAgotado = !isEquipoDisponible && (!isModular || !isEsenciaDisponible);
 
   return (
-    <div className={`relative group w-[85vw] sm:w-80 flex-shrink-0 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-6 overflow-hidden transition-all duration-300 flex flex-col min-h-[460px] ${isVisualmenteAgotado ? 'opacity-50' : 'hover:bg-white/10'}`}>
+    <div className={`relative group w-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl sm:rounded-3xl p-3 sm:p-6 overflow-hidden transition-all duration-300 flex flex-col h-full min-h-[300px] sm:min-h-[460px] ${isVisualmenteAgotado ? 'opacity-50' : 'hover:bg-white/10'}`}>
       
       {/* Badge de Puffs */}
-      <div className="absolute top-4 right-4 z-10">
-        <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold text-white shadow-lg bg-gradient-to-r ${badgeGradientClasses}`}>
+      <div className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10">
+        <span className={`inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold text-white shadow-lg bg-gradient-to-r ${badgeGradientClasses}`}>
           {product.puffs}
         </span>
       </div>
 
       {/* Type Badge */}
-      <div className="absolute top-4 left-4 z-10">
+      <div className="absolute top-2 left-2 sm:top-4 sm:left-4 z-10 hidden sm:block">
         <span className="inline-block px-3 py-1 rounded-full text-[10px] uppercase tracking-wider font-bold text-gray-300 bg-black/40 backdrop-blur-md border border-white/10">
           {product.type}
         </span>
       </div>
 
       {/* Image Container with Dynamic Gradient */}
-      <div className={`relative h-48 mt-8 mb-6 rounded-2xl flex items-center justify-center overflow-hidden border border-white/10 shadow-lg group-hover:border-white/20 transition-all shrink-0 ${getGradientClass(product.imagePlaceholder)}`}>
+      <div className={`relative aspect-square w-full mt-6 sm:mt-8 mb-3 sm:mb-6 rounded-xl sm:rounded-2xl flex items-center justify-center overflow-hidden border border-white/10 shadow-lg group-hover:border-white/20 transition-all shrink-0 ${getGradientClass(product.imagePlaceholder)}`}>
         
         {/* Si hay imagen, la renderizamos, si no, mostramos el placeholder de texto */}
         {product.image ? (
@@ -125,49 +125,50 @@ const ProductCard = ({ product }) => {
 
       {/* Content */}
       <div className="flex flex-col flex-grow">
-        <h3 translate="no" className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:to-orange-400 transition-all notranslate">
+        <h3 translate="no" className="text-sm sm:text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:to-orange-400 transition-all notranslate line-clamp-1">
           {product.name}
         </h3>
-        <p className="text-sm font-semibold text-white/80 mt-1 mb-2">
+        <p className="text-xs sm:text-sm font-semibold text-white/80 mt-0.5 sm:mt-1 mb-1 sm:mb-2 line-clamp-1">
           {product.shortDescription}
         </p>
-        <p className="text-sm text-gray-400 line-clamp-3 mb-4">
+        <p className="hidden sm:block text-sm text-gray-400 line-clamp-3 mb-4">
           {product.description}
         </p>
         
-        <div className="mb-6">
-          <span className="text-3xl font-black text-white">
+        <div className="mb-3 sm:mb-6 mt-1 sm:mt-0">
+          <span className="text-lg sm:text-3xl font-black text-white">
             ${product.price.toFixed(2)}
           </span>
         </div>
 
         {/* Action Buttons (Pushed to bottom) */}
-        <div className="mt-auto flex flex-col gap-2">
+        <div className="mt-auto flex flex-col gap-1.5 sm:gap-2">
           <button 
             onClick={handleBuyBase}
             disabled={!isEquipoDisponible}
-            className={`w-full flex items-center justify-center py-3 rounded-xl font-bold shadow-lg transition-all ${
+            className={`w-full flex items-center justify-center py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold shadow-lg transition-all text-xs sm:text-base ${
               !isEquipoDisponible 
                 ? 'bg-neutral-800 text-neutral-500 border-none cursor-not-allowed pointer-events-none'
                 : 'bg-gradient-to-r from-yellow-600 to-orange-500 hover:from-yellow-500 hover:to-orange-400 text-white hover:shadow-orange-500/30 hover:scale-[1.02] active:scale-95'
             }`}
           >
-            <ShoppingCart className="w-5 h-5 mr-2 shrink-0" />
-            <span>{!isEquipoDisponible ? 'Equipo Agotado' : 'Añadir al Carrito'}</span>
+            <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 shrink-0" />
+            <span>{!isEquipoDisponible ? 'Agotado' : 'Agregar'}</span>
           </button>
           
           {isModular && (
             <button 
               onClick={handleBuyWithEssence}
               disabled={!isEsenciaDisponible}
-              className={`w-full flex items-center justify-center py-2.5 rounded-xl text-sm font-medium border transition-all ${
+              className={`w-full flex items-center justify-center py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl text-[10px] sm:text-sm font-medium border transition-all ${
                 !isEsenciaDisponible
                   ? 'bg-neutral-800/50 text-neutral-500 border-transparent cursor-not-allowed pointer-events-none'
                   : 'bg-white/10 hover:bg-white/20 text-white border-white/20 hover:scale-[1.02] active:scale-95'
               }`}
             >
-              <Plus className="w-4 h-4 mr-2 shrink-0" />
-              Añadir Esencia (+$8.00)
+              <Plus className="w-3 h-3 sm:w-4 sm:h-4 mr-1 shrink-0" />
+              <span className="hidden sm:inline">Añadir Esencia (+$8.00)</span>
+              <span className="sm:hidden">Esencia (+$8)</span>
             </button>
           )}
         </div>
