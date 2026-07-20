@@ -11,6 +11,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp';
 import AgeGate from './components/AgeGate';
 import WebServicesCTA from './components/WebServicesCTA';
 import Footer from './components/Footer';
+import CartDrawer from './components/CartDrawer';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <CartDrawer />
     </div>
   );
 }

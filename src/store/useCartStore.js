@@ -14,6 +14,11 @@ const useCartStore = create((set, get) => ({
   cart: [],
   products: [],
   isLoading: false,
+  isCartOpen: false,
+
+  openCart: () => set({ isCartOpen: true }),
+  closeCart: () => set({ isCartOpen: false }),
+  toggleCart: () => set((state) => ({ isCartOpen: !state.isCartOpen })),
 
   // Obtener productos desde la fuente (API o local)
   fetchProducts: async () => {
@@ -39,6 +44,15 @@ const useCartStore = create((set, get) => ({
       }
       return { cart: [...state.cart, { ...product, quantity }] };
     });
+  },
+
+  // Actualizar cantidad específica
+  updateQuantity: (productId, quantity) => {
+    set((state) => ({
+      cart: quantity === 0 
+        ? state.cart.filter((item) => item.id !== productId)
+        : state.cart.map((item) => item.id === productId ? { ...item, quantity } : item)
+    }));
   },
 
   // Eliminar del carrito

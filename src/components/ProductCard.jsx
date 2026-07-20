@@ -3,27 +3,20 @@ import { ShoppingCart, Plus } from 'lucide-react';
 import useCartStore from '../store/useCartStore';
 
 const ProductCard = ({ product }) => {
-  const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '593999227426';
-  const addToCart = useCartStore((state) => state.addToCart);
+  const { addToCart, openCart } = useCartStore();
   
   const handleBuyBase = () => {
     addToCart(product, 1);
-    const message = `Hola Hematnni, quiero pedir el ${product.name}.`;
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+    openCart();
   };
 
   const handleBuyWithEssence = () => {
-    addToCart({ id: 'flavor-refill', name: 'Recarga de Sabor', price: 8 }, 1);
-    
-    // Si el equipo base está agotado, cambiamos el mensaje dinámicamente
-    const isEquipoDisp = product.isEquipoDisponible !== undefined ? product.isEquipoDisponible : !product.isAgotado;
-    const message = !isEquipoDisp 
-      ? `Hola, me interesa comprar solo el cartucho de esencia para el ${product.name}.`
-      : `Hola Hematnni, quiero pedir una recarga de sabor para mi dispositivo modular.`;
-      
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+    const baseSlug = product.name.toLowerCase().replace(/\s+/g, '-');
+    const essenceId = `esencia-${baseSlug}`;
+    const essenceName = `Recarga de Sabor (${product.name})`;
+    const essenceImage = `/assets/vapes/${essenceId}.webp`;
+    addToCart({ id: essenceId, name: essenceName, price: 8, image: essenceImage }, 1);
+    openCart();
   };
 
   // Función auxiliar requerida
@@ -160,7 +153,7 @@ const ProductCard = ({ product }) => {
             }`}
           >
             <ShoppingCart className="w-5 h-5 mr-2 shrink-0" />
-            <span>{!isEquipoDisponible ? 'Equipo Agotado' : 'Comprar Equipo'}</span>
+            <span>{!isEquipoDisponible ? 'Equipo Agotado' : 'Añadir al Carrito'}</span>
           </button>
           
           {isModular && (

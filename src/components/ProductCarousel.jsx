@@ -111,7 +111,7 @@ const ProductCarousel = () => {
       </div>
 
       {/* Dots Indicator */}
-      <div className="flex justify-center items-center gap-2 mt-6">
+      <div className="flex justify-center items-center gap-1 md:gap-2 mt-6 flex-wrap px-4">
         {displayProducts.map((_, index) => (
           <button 
             key={index}
@@ -126,11 +126,11 @@ const ProductCarousel = () => {
               }
             }}
             aria-label={`Ir al producto ${index + 1}`}
-            className="p-3 focus:outline-none group cursor-pointer"
+            className="p-1.5 md:p-2 focus:outline-none group cursor-pointer"
           >
             <div className={`h-2 w-2 md:h-3 md:w-3 rounded-full transition-all duration-300 ${
               index === activeIndex 
-                ? 'w-6 md:w-8 bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)]' 
+                ? 'w-5 md:w-8 bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)]' 
                 : 'bg-white/20 group-hover:bg-white/40'
             }`} />
           </button>

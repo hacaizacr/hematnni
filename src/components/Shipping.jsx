@@ -4,8 +4,6 @@ import { MapPin, Navigation, Map, Truck } from 'lucide-react';
 const Shipping = () => {
   return (
     <section id="envios" className="w-full py-16 lg:py-24 relative overflow-hidden bg-gradient-to-b from-[#070b14] to-[#0a0f1d] border-t border-b border-slate-800/50">
-      {/* Fondo de Mapa */}
-      <div className="absolute inset-0 bg-[url('/assets/quito-map.webp')] bg-cover bg-center bg-no-repeat opacity-5 pointer-events-none" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
