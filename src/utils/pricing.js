@@ -17,7 +17,7 @@ export const wholesalePricingDB = {
   "beco": { base: 13.00, tier5: 9.90, tier10: 8.55, tier30: 8.22 }
 };
 
-export const getPriceForQuantity = (item) => {
+export const getPriceForQuantity = (item, totalCartQuantity) => {
   let slug = '';
   
   // Determinar el slug dependiendo si es una esencia (ID generado) o un producto base (Nombre)
@@ -36,8 +36,10 @@ export const getPriceForQuantity = (item) => {
   // Fallback al precio original si no existe en la BD
   if (!tiers) return item.price;
 
-  if (item.quantity >= 30) return tiers.tier30;
-  if (item.quantity >= 10) return tiers.tier10;
-  if (item.quantity >= 5) return tiers.tier5;
+  const qtyToEvaluate = totalCartQuantity !== undefined ? totalCartQuantity : item.quantity;
+
+  if (qtyToEvaluate >= 30) return tiers.tier30;
+  if (qtyToEvaluate >= 10) return tiers.tier10;
+  if (qtyToEvaluate >= 5) return tiers.tier5;
   return tiers.base;
 };

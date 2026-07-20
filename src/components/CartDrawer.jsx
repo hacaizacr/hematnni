@@ -7,8 +7,10 @@ const CartDrawer = () => {
   const { cart, isCartOpen, closeCart, updateQuantity, removeFromCart } = useCartStore();
   const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '593999227426';
 
+  const totalCartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
   const cartTotal = cart.reduce((total, item) => {
-    const unitPrice = getPriceForQuantity(item);
+    const unitPrice = getPriceForQuantity(item, totalCartQuantity);
     return total + (unitPrice * item.quantity);
   }, 0);
 
@@ -17,7 +19,7 @@ const CartDrawer = () => {
 
     let message = `Hola Hematnni, me interesa confirmar el siguiente pedido:\n\n`;
     cart.forEach((item) => {
-      const unitPrice = getPriceForQuantity(item);
+      const unitPrice = getPriceForQuantity(item, totalCartQuantity);
       const isDiscounted = unitPrice < item.price;
       const discountTag = isDiscounted ? ` [Precio Mayoreo Aplicado]` : ``;
       message += `- ${item.quantity}x ${item.name} ($${(unitPrice * item.quantity).toFixed(2)})${discountTag}\n`;
@@ -75,8 +77,8 @@ const CartDrawer = () => {
                 <div className="flex-1">
                   <h3 className="text-white font-bold text-sm line-clamp-1">{item.name}</h3>
                   <div className="flex items-center gap-2">
-                    <p className="text-yellow-500 font-bold">${getPriceForQuantity(item).toFixed(2)}</p>
-                    {getPriceForQuantity(item) < item.price && (
+                    <p className="text-yellow-500 font-bold">${getPriceForQuantity(item, totalCartQuantity).toFixed(2)}</p>
+                    {getPriceForQuantity(item, totalCartQuantity) < item.price && (
                       <span className="text-[10px] bg-green-500/20 text-green-400 px-1.5 py-0.5 rounded uppercase font-bold">
                         Mayoreo
                       </span>
