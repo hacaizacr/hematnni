@@ -4,7 +4,13 @@ const AgeGate = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const isVerified = localStorage.getItem('hematnni_age_verified');
+    let isVerified = false;
+    try {
+      isVerified = localStorage.getItem('hematnni_age_verified');
+    } catch (error) {
+      console.warn('ITP/Safari Storage Error ignorado:', error);
+    }
+
     if (!isVerified) {
       setIsVisible(true);
       document.body.style.overflow = 'hidden';
@@ -12,7 +18,13 @@ const AgeGate = () => {
   }, []);
 
   const handleConfirm = () => {
-    localStorage.setItem('hematnni_age_verified', 'true');
+    try {
+      localStorage.setItem('hematnni_age_verified', 'true');
+    } catch (error) {
+      console.warn('ITP/Safari Storage Error ignorado:', error);
+    }
+    
+    // El modal siempre debe cerrarse incluso si localStorage falló
     setIsVisible(false);
     document.body.style.overflow = 'auto';
   };
@@ -24,7 +36,10 @@ const AgeGate = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-3xl">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-3xl"
+      style={{ touchAction: 'none' }}
+    >
       <div className="bg-white/5 border border-white/10 rounded-2xl p-8 max-w-md w-full text-center shadow-2xl backdrop-blur-md">
         <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-500 to-orange-400 bg-clip-text text-transparent">
           Verificación de Edad
