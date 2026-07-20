@@ -12,10 +12,12 @@ import AgeGate from './components/AgeGate';
 import WebServicesCTA from './components/WebServicesCTA';
 import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#070b14] text-white selection:bg-yellow-500/30">
+    <ErrorBoundary>
+      <div className="min-h-screen bg-[#070b14] text-white selection:bg-yellow-500/30">
       <AgeGate />
       <Navbar />
       
@@ -32,7 +34,8 @@ function App() {
       <Footer />
       <FloatingWhatsApp />
       <CartDrawer />
-    </div>
+      </div>
+    </ErrorBoundary>
   );
 }
 
