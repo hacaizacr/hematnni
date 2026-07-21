@@ -29,6 +29,9 @@ const Hero = () => {
                 Ver Catálogo
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>
+              <a href="#mayorista" className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-full text-orange-400 bg-transparent border-2 border-orange-500/50 hover:border-orange-500 hover:bg-orange-500/10 transition-all w-full sm:w-auto">
+                Catálogo Mayorista
+              </a>
             </div>
           </div>
 

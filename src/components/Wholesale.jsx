@@ -11,7 +11,7 @@ const Wholesale = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-t border-orange-500/30 overflow-hidden relative">
+    <section id="mayorista" className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-t border-orange-500/30 overflow-hidden relative">
       
       {/* Background ambient light */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-orange-500/10 blur-[100px] pointer-events-none rounded-b-full" />
@@ -34,9 +34,12 @@ const Wholesale = () => {
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-white mb-4 lg:mb-6 tracking-tight leading-tight">
               Haz crecer tu negocio<br /> con el catálogo de <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-400">alta gama.</span>
             </h2>
-            <p className="text-base lg:text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
-              Accede a márgenes de ganancia exclusivos. Ofrecemos precios escalonados altamente competitivos para compras a partir de 5, 10 y 30 unidades.
-            </p>
+            <div className="text-base lg:text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium space-y-2 mb-6 lg:mb-0">
+              <p className="font-bold text-white">Comprar al por mayor ahora es automático.</p>
+              <p>
+                Olvídate de cotizaciones lentas. Simplemente añade los dispositivos que desees a tu carrito de compras. Nuestro sistema inteligente detectará al instante cuando acumules <strong className="text-white">5, 10 o 30 unidades</strong> (puedes combinar marcas y sabores) y aplicará automáticamente tus márgenes de ganancia y descuentos exclusivos antes de pagar.
+              </p>
+            </div>
           </div>
 
           <div className="flex-shrink-0 w-full lg:w-auto flex justify-center lg:justify-end">
