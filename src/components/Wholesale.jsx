@@ -61,15 +61,26 @@ const Wholesale = () => {
             </p>
           </div>
 
-          {/* Card 3 */}
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
-            <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center mb-4 border border-orange-500/30">
+          {/* Card 3 (Destacada) */}
+          <div className="bg-white/5 border border-orange-500/40 rounded-2xl p-6 hover:bg-white/10 transition-colors shadow-[0_0_20px_rgba(249,115,22,0.15)] flex flex-col">
+            <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center mb-4 border border-orange-500/50">
               <Tag className="w-6 h-6 text-orange-400" />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Escalas de descuento.</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Precios de mayorista automáticos al alcanzar <strong className="text-white">5, 10 o 30 unidades</strong>.
+            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+              Precios de mayorista automáticos al alcanzar:
             </p>
+            <div className="flex flex-row flex-wrap gap-2 mt-auto">
+              <span className="px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-extrabold text-xs rounded-md shadow-md">
+                5+ uds
+              </span>
+              <span className="px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-extrabold text-xs rounded-md shadow-md">
+                10+ uds
+              </span>
+              <span className="px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-extrabold text-xs rounded-md shadow-md">
+                30+ uds
+              </span>
+            </div>
           </div>
 
         </div>
