@@ -67,19 +67,33 @@ const Wholesale = () => {
               <Tag className="w-6 h-6 text-orange-400" />
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Escalas de descuento.</h3>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              Precios de mayorista automáticos desde:
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              Desbloquea mejores márgenes automáticamente:
             </p>
-            <div className="flex flex-row flex-wrap gap-2 mt-auto">
-              <span className="px-4 py-1 bg-orange-500 text-slate-950 font-bold text-xs rounded-full shadow-md">
-                5+
-              </span>
-              <span className="px-4 py-1 bg-orange-500 text-slate-950 font-bold text-xs rounded-full shadow-md">
-                10+
-              </span>
-              <span className="px-4 py-1 bg-orange-500 text-slate-950 font-bold text-xs rounded-full shadow-md">
-                30+
-              </span>
+            <div className="relative flex justify-between items-start mt-auto px-2 sm:px-4 pb-2">
+              {/* Línea conectora horizontal */}
+              <div className="absolute left-8 right-8 top-1.5 h-[2px] bg-orange-500/20" />
+              
+              {/* Nodo 1 */}
+              <div className="flex flex-col items-center relative z-10">
+                <div className="w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)] mb-2" />
+                <span className="text-white font-bold text-sm">5+</span>
+                <span className="text-[10px] text-gray-500">unidades</span>
+              </div>
+              
+              {/* Nodo 2 */}
+              <div className="flex flex-col items-center relative z-10">
+                <div className="w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)] mb-2" />
+                <span className="text-white font-bold text-sm">10+</span>
+                <span className="text-[10px] text-gray-500">unidades</span>
+              </div>
+              
+              {/* Nodo 3 */}
+              <div className="flex flex-col items-center relative z-10">
+                <div className="w-3 h-3 rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.8)] mb-2" />
+                <span className="text-white font-bold text-sm">30+</span>
+                <span className="text-[10px] text-gray-500">unidades</span>
+              </div>
             </div>
           </div>
 
